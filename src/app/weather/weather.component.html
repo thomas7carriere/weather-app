@@ -1,1 +1,36 @@
-<p>weather works!...or does it?</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="text-center my-4">Search for Weather:</h3>
+            <form
+                [formGroup]="weatherSearchForm" (ngSubmit)="sendToWeatherAPI(weatherSearchForm.value)">
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="weatherLocation"
+                    aria-describedby="weatherLocation"
+                    placeholder="Please input a Location"
+                    formControlName="location"
+                    />
+                 </div>
+                 <div class="text-center"> 
+                  <button type="submit" class="btn btn-success btn-md my-4">
+                    Search for the weather</button>
+                 </div>
+                 <div class="text-center">
+                     <p *ngIf="invalidLocation" id="errorText">Please enter a valid location</p>
+                 </div>
+            </form> 
+        </div>    
+            
+        <div class="col-md-6">
+            <h3 class="text-left my-4">Weather Details:</h3>
+            <img [src]="imageLink" alt=" " width="50" height="50">
+            <p class="text-left">Location Searched: {{this.weatherData?.name}}</p>
+            <p class="text-left text-capitalize">Conditions: {{this.weatherData?.weather[0].description}}</p>
+            <p class="text-left">Tempetarure (C): {{this.weatherData?.main.temp}}</p>
+            <p class="text-left">Feels like (C): {{this.weatherData?.main.feels_like}}</p>
+        </div>
+    </div>
+</div>
