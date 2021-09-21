@@ -70,6 +70,9 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+		  "options": {
+			"host": "192.168.68.111"
+		  },
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {

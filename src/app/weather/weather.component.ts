@@ -37,7 +37,6 @@ export class WeatherComponent implements OnInit {
   }
 
   updateImage(iconCode: any){
-    this.imageLink = 'http://openweathermap.org/img/wn/' + iconCode + '@2x.png'
+    this.imageLink = `http://openweathermap.org/img/wn/${iconCode}@2x.png`
   }
-
 }
